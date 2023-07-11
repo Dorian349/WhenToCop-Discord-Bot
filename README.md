@@ -8,7 +8,7 @@ Follow the Prerequisites & Installation section.
 ## Preview
 
 * Upcoming Command<br />
-![Upcoming Command](https://media.discordapp.net/attachments/1117386156896698488/1118459513222213672/Capture_decran_du_2023-06-14_10-38-43.png)
+![Upcoming Command](https://cdn.discordapp.com/attachments/923205407873314887/1128269278693564427/Capture_decran_du_2023-06-14_10-38-43.png)
 
 ### Prerequisites
 
