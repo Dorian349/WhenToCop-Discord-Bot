@@ -17,9 +17,9 @@ Follow the Prerequisites & Installation section.
 
 ### Installation
 
-```
-$ Clone the repository and edit the config.json file. Install all the required npm packages using `npm i`. Then run the index.js file.
-```
+* Clone the repository and edit the config.json file.
+* Install all the required npm packages using `npm i`.
+* Then run the index.js file using `node index.js`.
 
 ## Usage
 
