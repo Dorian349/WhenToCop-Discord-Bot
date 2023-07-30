@@ -17,9 +17,9 @@ module.exports.getUpcomingShoes = async function (channel, client){
                 modele += ($(this).text()) + " ";
             });
 
-            let resellType = data(".slug__ResellIndexContainer-sc-7auole-18").find("p").first().text();
-            let retailPrice = data(".DropInfo__PriceContainer-sc-1okpqbg-2").find("p").first().text();
-            let resellPrice = data(".slug__InfosTextImportant-sc-7auole-15").text();
+            let resellType = data(".slug__ResellIndexContainer-sc-7auole-18").find("p").first().text().trim();
+            let retailPrice = data(".DropInfo__PriceContainer-sc-1okpqbg-2").find("p").first().text().trim();
+            let resellPrice = data(".slug__InfosTextImportant-sc-7auole-15").text().trim();
 
             let imageUrl = data("meta[name='twitter:image']").attr("content")
 
@@ -46,8 +46,10 @@ module.exports.getUpcomingShoes = async function (channel, client){
 
             channel.send({ embeds: [client.buildEmbed(null).setTitle("👟 " + modele).setURL("https://www.whentocop.fr/" + shoeUrl)
                         .setThumbnail(imageUrl)
-                        .addFields({ name: "Type de resell", value: resellType.charAt(0).toUpperCase() + resellType.slice(1), inline: true}, { name: "Prix de retail", value: retailPrice, inline: true}
-                            , { name: "Prix de resell", value: resellPrice, inline: true}, { name: "Date", value: date, inline: true},
+                        .addFields({ name: "Type de resell", value: resellType.length > 0 ? resellType.charAt(0).toUpperCase() + resellType.slice(1) : "Inconnu", inline: true},
+                            { name: "Prix de retail", value: retailPrice.length > 0 ? retailPrice : "Inconnu", inline: true},
+                            { name: "Prix de resell", value: resellPrice.length > 0 ? resellPrice : "Inconnu", inline: true},
+                            { name: "Date", value: date ?? "Inconnu", inline: true},
                         ...fieldDesc.map((el) => { return { name: "Où acheter ?", value: el.slice(0, -3), inline: true} }))] })
         }
     })
